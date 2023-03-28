@@ -32,7 +32,7 @@ const Item = ({
             {text}
           </p>
           <div className="flex items-center justify-between w-28 my-2">
-            <div className="flex items-center bg-white/90 px-1 rounded blur-effect-theme">
+            <div className="flex items-center bg-white/90 px-1 rounded ">
               <h1 className="text-black text-sm ">${price}</h1>
             </div>
             <div className="flex items-center gap-1">
@@ -45,13 +45,13 @@ const Item = ({
           <div className="flex items-center gap-3">
             <button
               type="button"
-              className="bg-white/90 blur-effect-theme button-theme p-0.5 shadow shadow-slate-200"
+              className="bg-white/90  button-theme p-0.5 shadow shadow-slate-200"
             >
               <ShoppingBagIcon className="icon-style text-slate-900" />
             </button>
             <button
               type="button"
-              className="bg-white/90 blur-effect-theme button-theme p-0.5 shadow shadow-slate-200 text-sm text-black"
+              className="bg-white/90 button-theme p-0.5 shadow shadow-slate-200 text-sm text-black"
             >
               {btn}
             </button>
