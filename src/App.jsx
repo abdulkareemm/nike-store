@@ -1,6 +1,6 @@
 import React from "react";
-import { FlexContent, Hero, Sales, Stories } from "./components";
-import { heroapi, popularsales,toprateslaes,highlight,sneaker,story } from "./data/data";
+import { FlexContent, Footer, Hero, Sales, Stories } from "./components";
+import { heroapi, popularsales,toprateslaes,highlight,sneaker,story,footerAPI } from "./data/data";
 
 const App = () => {
   return (
@@ -11,8 +11,9 @@ const App = () => {
         <FlexContent {...highlight} isExists />
         <Sales {...toprateslaes} />
         <FlexContent {...sneaker} />
-        <Stories {...story}/>
+        <Stories {...story} />
       </main>
+      <Footer {...footerAPI}/>
     </>
   );
 };
