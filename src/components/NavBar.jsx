@@ -6,10 +6,12 @@ import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/solid";
+import { useDispatch } from "react-redux";
+import { setOpenCart } from "../app/CartSlice";
 
 const NavBar = () => {
   const [navState, setNavState] = useState(false);
-  console.log(navState);
+  const dispatch = useDispatch()
   const onNavScroll = () => {
     if (window.scrollY > 30) {
       setNavState(true);
@@ -60,6 +62,7 @@ const NavBar = () => {
               <button
                 className="border-none outline-none active:scale-110 transition-all duration-300 relative"
                 type="button"
+                onClick={()=>dispatch(setOpenCart({cartState:true}))}
               >
                 <ShoppingBagIcon
                   className={`icon-style ${
