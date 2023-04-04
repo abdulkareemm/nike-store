@@ -1,9 +1,11 @@
 import React from "react";
 import { ChevronDoubleLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCartItems, selectCartTotal } from "../../app/CartSlice";
 
-const CartCount = ({ setCloseCart }) => {
+const CartCount = ({ setCloseCart, cartItem }) => {
   const dispatch = useDispatch();
+  const totalAmounts = useSelector(selectCartTotal);
 
   return (
     <>
@@ -25,7 +27,7 @@ const CartCount = ({ setCloseCart }) => {
             <h1 className="text-base font-medium text-slate-900">
               Your Cart
               <span className="bg-theme-cart text-slate-100 font-normal px-1 rounded py-0.5 ml-1 text-xs">
-                (1items)
+                ( {totalAmounts.totalQuantity} items)
               </span>
             </h1>
           </div>
@@ -34,6 +36,10 @@ const CartCount = ({ setCloseCart }) => {
           <button
             type="button"
             className="rounded bg-theme-cart active:scale-90 p-0.5"
+            onClick={() => {
+              dispatch(clearCartItems());
+              dispatch(setCloseCart({ cartState: false }));
+            }}
           >
             <XMarkIcon className="icon-style w-5 h-5 text-white stroke-[2]" />
           </button>

@@ -6,12 +6,14 @@ import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/solid";
-import { useDispatch } from "react-redux";
-import { setOpenCart } from "../app/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCartItem, setOpenCart } from "../app/CartSlice";
 
 const NavBar = () => {
   const [navState, setNavState] = useState(false);
   const dispatch = useDispatch()
+  const cartItem = useSelector(selectCartItem);
+
   const onNavScroll = () => {
     if (window.scrollY > 30) {
       setNavState(true);
@@ -78,7 +80,7 @@ const NavBar = () => {
                     : "bg-white text-slate-900 shadow-slate-100"
                 }`}
                 >
-                  0
+                  {cartItem.length}
                 </div>
               </button>
             </li>
